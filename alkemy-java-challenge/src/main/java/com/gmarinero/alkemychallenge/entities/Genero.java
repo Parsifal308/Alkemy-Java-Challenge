@@ -30,4 +30,28 @@ public class Genero {
 	
 	@OneToMany(mappedBy = "genero", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pelicula> peliculas;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 }

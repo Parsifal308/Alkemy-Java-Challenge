@@ -2,10 +2,8 @@ package com.gmarinero.alkemychallenge.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.gmarinero.alkemychallenge.entities.Personaje;
 import com.gmarinero.alkemychallenge.repos.PersonajeDAO;
 
@@ -17,32 +15,58 @@ public class PersonajeServiceImplement implements PersonajeService{
 	
 	@Override
 	public Personaje crearPersonaje(Personaje personaje) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			personaje = personajeDAO.save(personaje);
+			return personaje;
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 	@Override
 	public Optional<Personaje> buscarPersonajePorId(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Optional<Personaje> personaje = personajeDAO.findById(id); 
+			return personaje;
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 	@Override
 	public List<Personaje> buscarPersonajes() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			List<Personaje> personaje = personajeDAO.findAll(); 
+			return personaje;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
 	}
 
 	@Override
 	public Personaje actualizarPersonaje(Long id, Personaje personaje) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Optional<Personaje> personajeEncontrado = personajeDAO.findById(id);
+			Personaje personajeActualizado = personajeEncontrado.get();
+			personajeActualizado = personajeDAO.save(personaje);
+			return personajeActualizado;
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 	@Override
 	public boolean eliminarPersonaje(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			if(personajeDAO.existsById(id)) { 	
+				personajeDAO.deleteById(id);
+				return true;
+			}else {								
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 }
