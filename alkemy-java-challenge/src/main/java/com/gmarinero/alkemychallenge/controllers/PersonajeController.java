@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gmarinero.alkemychallenge.entities.Personaje;
 import com.gmarinero.alkemychallenge.services.PersonajeService;
@@ -23,7 +24,7 @@ public class PersonajeController {
 	@Autowired
 	PersonajeService personajeService;
 	
-	@GetMapping("/")
+	@GetMapping("/all")
 	ResponseEntity<?> buscarPersonajes(){
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(personajeService.buscarPersonajes());
@@ -32,7 +33,7 @@ public class PersonajeController {
 		}
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/byID/{id}")
 	ResponseEntity<?> buscarPersonajePorId(@PathVariable Long id){
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(personajeService.buscarPersonajePorId(id));
@@ -40,6 +41,36 @@ public class PersonajeController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("-->[Error] " + ex.getMessage());
 		}
 	}
+	
+	
+	
+	
+	@GetMapping("/byName")
+	ResponseEntity<?> buscarPersonajePorNombre(@RequestParam("name") String name){
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(personajeService.findByName(name));
+		}catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("-->[Error] " + ex.getMessage());
+		}
+	}
+	@GetMapping("/byAge")
+	ResponseEntity<?> buscarPersonajePorEdad(@RequestParam("age") Long age){
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(personajeService.findByAge(age));
+		}catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("-->[Error] " + ex.getMessage());
+		}
+	}
+	@GetMapping("/byMovie")
+	ResponseEntity<?> buscarPersonajePorPelicula(@RequestParam("movie") Long movieId){
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(personajeService.findByMovie(movieId));
+		}catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("-->[Error] " + ex.getMessage());
+		}
+	}
+	
+	
 	
 	@PostMapping("/")
 	ResponseEntity<?> crearPersonaje(@RequestBody Personaje personaje) {

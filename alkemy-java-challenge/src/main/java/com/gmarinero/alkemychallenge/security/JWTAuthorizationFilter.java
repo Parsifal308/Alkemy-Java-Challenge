@@ -58,7 +58,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter{
 	//añade configuracion necesaria para autorizar la peticion
 	private void setUpSpringAuthentication(Claims claims) {
 		@SuppressWarnings("unchecked")
-		List<String> authorities = (List)claims.get("authorities");
+		List<String> authorities = (List<String>)claims.get("authorities");
 
 		UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(claims.getSubject(), null, authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
 		SecurityContextHolder.getContext().setAuthentication(auth);

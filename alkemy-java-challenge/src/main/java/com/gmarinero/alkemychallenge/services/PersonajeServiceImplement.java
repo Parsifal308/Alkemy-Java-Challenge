@@ -69,4 +69,36 @@ public class PersonajeServiceImplement implements PersonajeService{
 		}
 	}
 
+	
+	
+	@Override
+	public List<Personaje> findByName(String username) throws Exception {
+		try {
+			List<Personaje> personaje = personajeDAO.findByNombre(username); 
+			return personaje;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	public List<Personaje> findByAge(Long age) throws Exception {
+		try {
+			List<Personaje> personaje = personajeDAO.findByEdad(age); 
+			return personaje;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	public List<Personaje> findByMovie(Long movieId) throws Exception {
+		try {
+			List<Personaje> personaje = personajeDAO.findByPeliculas(movieId); 
+			return personaje;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
 }

@@ -69,4 +69,38 @@ public class PeliculaServiceImplement implements PeliculaService{
 		}
 	}
 
+	
+	
+	
+	
+	@Override
+	public List<Pelicula> findByGeneroId(Long generoId) throws Exception {
+		try {
+			List<Pelicula> pelicula = peliculaDAO.findByGeneroId(generoId); 
+			return pelicula;
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<Pelicula> findByName(String name) throws Exception {
+		try {
+			List<Pelicula> pelicula = peliculaDAO.findByTitulo(name); 
+			return pelicula;
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<Pelicula> findAllAndOrder(String order) throws Exception {
+		try {
+			List<Pelicula> pelicula = peliculaDAO.findAllAndOrder(order); 
+			return pelicula;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
 }

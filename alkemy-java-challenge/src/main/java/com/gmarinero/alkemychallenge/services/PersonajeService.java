@@ -10,4 +10,8 @@ public interface PersonajeService {
 	public List<Personaje> buscarPersonajes() throws Exception;
 	public Personaje actualizarPersonaje(Long id, Personaje personaje) throws Exception;
 	public boolean eliminarPersonaje(Long id) throws Exception;
+	
+	public List<Personaje> findByName(String name) throws Exception;
+	public List<Personaje> findByAge(Long age) throws Exception;
+	public List<Personaje> findByMovie(Long movie) throws Exception;
 }
