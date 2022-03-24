@@ -82,7 +82,7 @@ public class PersonajeServiceImplement implements PersonajeService{
 	}
 
 	@Override
-	public List<Personaje> findByAge(Long age) throws Exception {
+	public List<Personaje> findByAge(int age) throws Exception {
 		try {
 			List<Personaje> personaje = personajeDAO.findByEdad(age); 
 			return personaje;

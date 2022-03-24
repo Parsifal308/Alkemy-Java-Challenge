@@ -12,6 +12,6 @@ public interface PersonajeService {
 	public boolean eliminarPersonaje(Long id) throws Exception;
 	
 	public List<Personaje> findByName(String name) throws Exception;
-	public List<Personaje> findByAge(Long age) throws Exception;
+	public List<Personaje> findByAge(int age) throws Exception;
 	public List<Personaje> findByMovie(Long movie) throws Exception;
 }

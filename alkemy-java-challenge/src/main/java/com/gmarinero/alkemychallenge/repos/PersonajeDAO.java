@@ -11,7 +11,7 @@ import com.gmarinero.alkemychallenge.entities.Personaje;
 public interface PersonajeDAO extends JpaRepository<Personaje, Long>{
 
 	List<Personaje> findByNombre(String nombre);
-	List<Personaje> findByEdad(Long edad);
+	List<Personaje> findByEdad(int edad);
 	List<Personaje> findByPeliculas(Long peliculas);
 
 }

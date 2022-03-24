@@ -54,7 +54,7 @@ public class PersonajeController {
 		}
 	}
 	@GetMapping("/byAge")
-	ResponseEntity<?> buscarPersonajePorEdad(@RequestParam("age") Long age){
+	ResponseEntity<?> buscarPersonajePorEdad(@RequestParam("age") int age){
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(personajeService.findByAge(age));
 		}catch(Exception ex) {
