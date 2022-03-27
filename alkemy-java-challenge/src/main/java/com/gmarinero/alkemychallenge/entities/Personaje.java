@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
@@ -33,6 +35,7 @@ public class Personaje {
 	private String historia;
 	
 	@ManyToMany(mappedBy = "personajes")
+	@JsonIgnoreProperties(value="personajes")
 	private List<Pelicula> peliculas;
 
 	public Long getPersonajeId() {
@@ -74,4 +77,13 @@ public class Personaje {
 	public void setHistoria(String historia) {
 		this.historia = historia;
 	}
+
+	public List<Pelicula> getPeliculas() {
+		return peliculas;
+	}
+
+	public void setPeliculas(List<Pelicula> peliculas) {
+		this.peliculas = peliculas;
+	}
+	
 }

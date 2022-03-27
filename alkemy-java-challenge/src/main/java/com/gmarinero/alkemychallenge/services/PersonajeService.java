@@ -13,5 +13,5 @@ public interface PersonajeService {
 	
 	public List<Personaje> findByName(String name) throws Exception;
 	public List<Personaje> findByAge(int age) throws Exception;
-	public List<Personaje> findByMovie(Long movie) throws Exception;
+	public List<Personaje> findByMovie(Long movieId) throws Exception;
 }

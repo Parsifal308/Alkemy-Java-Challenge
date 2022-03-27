@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 	
 @Entity
@@ -40,6 +42,7 @@ public class Pelicula {
 	
 	@ManyToMany
 	@JoinTable(	name="personaje_pelicula", joinColumns = @JoinColumn(name = "peliculaId"), inverseJoinColumns = @JoinColumn(name = "personajeId"))
+	@JsonIgnoreProperties(value="peliculas")
 	private List<Personaje> personajes;
 	
 	@ManyToOne()
