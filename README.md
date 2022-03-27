@@ -1,7 +1,7 @@
 # Alkemy Java Challenge 
 ## by Guillermo Marinero
-#
-#
+
+
 # Endpoints:
 ## Characters:
 ## GET
