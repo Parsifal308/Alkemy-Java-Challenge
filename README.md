@@ -10,17 +10,13 @@
 ### /characters/byName
 ### /characters/byAge
 ### /characters/byMovie (not correctly implemented)
-#
 ## POST
 ### /characters/
-#
 ## PUT
 ### /characters/{id}
-#
 ## DELETE
 ### /characters/{id}
-#
-#
+
 ## Movies:
 ## GET
 ### /movies/
@@ -28,16 +24,13 @@
 ### /movies/byName
 ### /movies/byGenre
 ### /movies/order (not implemented)
-#
 ## POST
 ### /movies/
-#
 ## PUT
 ### /movies/{id}
 ## DELETE
 ### /movies/{id}
-#
-#
+
 ## Genres:
 ## GET
 ### /genres/
@@ -47,5 +40,4 @@
 ## PUT
 ### /genres/{id}
 ## DELETE
-### /genres/{id}
-###
+#### /genres/{id}
