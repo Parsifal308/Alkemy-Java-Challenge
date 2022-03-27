@@ -1,9 +1,9 @@
-# Alkemy Java Challenge 
-## by Guillermo Marinero
+# ***Alkemy Java Challenge*** 
+## by *Guillermo Marinero*
 
 
-# Endpoints:
-## Characters:
+# ***Endpoints***:
+## **Characters**:
 ### GET
 #### /characters/all
 #### /characters/byID/{id}
@@ -17,7 +17,7 @@
 ### DELETE
 #### /characters/{id}
 
-## Movies:
+## **Movies**:
 ### GET
 #### /movies/
 #### /movies/{id}
@@ -31,7 +31,7 @@
 ### DELETE
 #### /movies/{id}
 
-## Genres:
+## **Genres**:
 ### GET
 #### /genres/
 #### /genres/{id}
